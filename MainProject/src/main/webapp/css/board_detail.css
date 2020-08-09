@@ -1,0 +1,54 @@
+﻿/*폰트 초기화*/
+@font-face {font-family: '777Balsamtint';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Balsamtint.woff') format('opentype'); font-weight: normal; font-style: normal;}
+@font-face {font-family: 'Cafe24Oneprettynight'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff'); font-weight: normal; font-style: normal; }
+/*전체 레이아웃 초기화*/
+a {text-decoration: none;color: black;}
+li {list-style: none;}
+img {border: 0;vertical-align: middle;}
+#main_section {width: 1000px;height: auto;margin: 0 auto;border: 1px solid lightgray;}
+.main_article {word-break: break-all;}
+#contents {font-size: 14px; white-space:pre-wrap;}
+.main_article > p:nth-of-type(1) {padding-bottom: 8px;border-bottom: 1px solid lightgray;}
+#main_section article p span:first-of-type {padding-left: 10px; font-size: 12px; color: #007aff;}
+#main_section article p span:nth-of-type(2) {float: right;color: gray;font-size: 12px}
+#main_section article p span:last-of-type {margin-left: 787px;color: gray;font-size: 12px;width: 500px;}
+.main_article {margin: 30px;}
+#comments {width: 1000px;border: 1px solid lightgray;margin: 0 auto;margin-top: 10px;margin-bottom: 30px;font-size: 15px; }
+.comments {margin-left: 12px;font-size: 13px;margin-bottom: 30px;}
+#commentText {padding: 8px 8px 8px 0px;border: none;border-bottom: 1px solid #ccc;width: 835px;margin-left: 10px;}
+#commentText:focus {outline: none;}
+.writebutton {background-color: #c0c0c0;border: none;padding: 5px 10px;margin-left: 10px;vertical-align: bottom;}
+#comments_zone {width: 900px;margin: 0 auto;margin-top: 30px;font-size: 13px;word-break: break-all; }
+#comments_zone a:hover {text-decoration: underline;}
+#able {display: none;background-color: #007aff; color: #fff;}
+.buttonzone {margin-left: 30px;background-color: white;border: none; float: right; font-size: 11px; color: gray;}
+.button:hover {text-decoration: underline; cursor:pointer;}
+.modifyForm {display: none;padding: 0px 8px 8px 0px;border: none;border-bottom: 1px solid #ccc;width: 500px;font-size: 12px;}
+.modifyForm:focus {outline: none;}
+.modifyButton {display: none; border: none; background-color: #007aff; color: #fff; padding: 5px;vertical-align: bottom; margin-left: 10px;}
+.modifyCancleButton {display: none; background-color: #fff; color: #000; padding: 5px;vertical-align: bottom; margin-left: 10px; border-radius: 10px;}
+/*.modifyButton {display: none;}*/
+hr {border: 1px dotted lightgray;}
+#write_comment_zone{margin-left: 40px;}
+#disableCommentText {padding: 8px 8px 8px 0px;border: none;border-bottom: 1px solid #ccc;width: 800px;margin-left: 10px;background-color: white;font-size: 13px;}
+#disableCommentText a:hover {text-decoration: underline;}
+#main_div{width: 100%; height: 100%;}
+.wtime {color: gray;}
+input[type=button] {border: none; font-size: 12px; cursor: pointer; padding-right: 0; padding-left: 0; background: none; color: black;}
+button {border: none; background: white; font-size: 12px; cursor: pointer; padding-right: 0; padding-left: 0;}
+button:active {outline: none;}
+button:focus {outline: none;}
+.reply:focus {outline: none;}
+.main_comment_zone {margin-top: 20px;}
+.main_reply_comment_zone {margin-top: 20px; margin-left: 30px;}
+.replyForm {margin-top: 10px; display: none;}
+.replyForm input[type=text] {padding: 8px 8px 8px 0px;border: none;border-bottom: 1px solid #ccc;width: 760px;}
+.replyForm > i {margin-left: 30px;}
+.hidereplybutton {display: none; display: none; background-color: #007aff; color: #fff;}
+.hideReplyFormButton {display: none;}
+.receiver {color: gray;}
+.contents {margin-left: 22px;}
+#listbutton {width: 1000px; margin: 0 auto; height: 30px; margin-top: 10px;}
+#listbutton a {float: right; font-size: 13px; border: 1px solid #c8c8c8; padding: 5px; border-radius: 5px; box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.1);}
+#listbutton a:hover {border-color: #007aff;}
+.writer {font-size: 10px; color: red; border: 1px solid red; padding: 3px; border-radius: 10px;}

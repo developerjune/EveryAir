@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AdminBoardDAO">
+	<resultMap id="adminBoardResult" type="boardDTO">
+		<id property="no" column="NO" />
+		<result property="title" column="TITLE" />
+		<result property="contents" column="CONTENTS" />
+		<result property="wtime" column="WTIME" />
+		<result property="hit" column="HIT" />
+		<result property="membernickname" column="MEMBERNICKNAME" />
+		<result property="notice" column="NOTICE" />
+	</resultMap>
+
+	<select id="selectBoard" resultMap="adminBoardResult">
+		SELECT *
+		FROM BOARD
+		WHERE no=#{no}
+	</select>
+	
+	<insert id="insertNotice">
+		INSERT INTO BOARD(title, contents, membernickname, notice)
+		VALUES(#{title}, #{contents}, #{membernickname}, #{notice})
+	</insert>
+
+	<update id="updateBoard">
+		UPDATE BOARD
+		SET title=#{title}, contents=#{contents}
+		WHERE no=#{no}
+	</update>
+
+	<delete id="deleteBoard">
+		DELETE FROM BOARD
+		WHERE no=#{no}
+	</delete>
+	
+	<delete id="multiDeleteBoard" parameterType="String">
+		DELETE FROM BOARD
+		WHERE no IN ${value}
+	</delete>
+</mapper>

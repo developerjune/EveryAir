@@ -1,0 +1,20 @@
+h3 {
+    margin-left: 570px;
+}
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+table tr th {
+    padding: 10px 50px;
+}
+table tr td {
+    padding: 10px 50px;
+}
+table tr:nth-of-type(2n) {
+    background: #EAEAEA;
+}
+table tr td span {
+    padding-left: 10px;
+    padding-right: 5px;
+}

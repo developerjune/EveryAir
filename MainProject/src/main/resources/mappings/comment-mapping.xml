@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CommentDAO">
+	<resultMap id="commentResult" type="commentDTO">
+		<id property="no" column="NO" />
+		<result property="contents" column="CONTENTS" />
+		<result property="groupnum" column="GROUPNUM" />
+		<result property="stepnum" column="STEPNUM" />
+		<result property="indentnum" column="INDENTNUM" />
+		<result property="wtime" column="WTIME" />
+		<result property="boardno" column="BOARDNO" />
+		<result property="membernickname" column="MEMBERNICKNAME" />
+		<result property="receiver" column="RECEIVER" />
+	</resultMap>
+	
+	<select id="selectListComment" resultMap="commentResult">
+		SELECT *
+		FROM COMMENT
+		WHERE boardno=#{boardno}
+		ORDER BY groupnum DESC, stepnum ASC
+	</select>
+	
+	<select id="selectMaxCommentNum" resultType="int">
+		SELECT IFNULL(MAX(no), 0)
+		FROM COMMENT
+	</select>
+	
+	<select id="selectMaxStepNum" resultType="int">
+		SELECT MAX(stepnum)
+		FROM COMMENT
+		WHERE groupnum=#{groupnum}
+	</select>
+	
+	<insert id="insertComment">
+		INSERT INTO COMMENT(contents, groupnum, boardno, membernickname)
+		VALUES(#{contents}, #{groupnum}, #{boardno}, #{membernickname})
+	</insert>
+	
+	<insert id="replyComment">
+		<if test="receiver != ''">
+			INSERT INTO COMMENT(contents, groupnum, stepnum, indentnum, boardno, membernickname, receiver)
+			VALUES(#{contents}, #{groupnum}, #{stepnum}, #{indentnum}, #{boardno}, #{membernickname}, #{receiver})
+		</if>
+		<if test="receiver == ''">
+			INSERT INTO COMMENT(contents, groupnum, stepnum, indentnum, boardno, membernickname)
+			VALUES(#{contents}, #{groupnum}, #{stepnum}, #{indentnum}, #{boardno}, #{membernickname})
+		</if>
+	</insert>
+	
+	<update id="updateComment">
+		UPDATE COMMENT
+		SET contents=#{contents}
+		WHERE no=#{no}
+	</update>
+	
+	<delete id="deleteComment">
+		<if test="indentnum == 1">
+			DELETE FROM COMMENT
+			WHERE no=#{no}
+		</if>
+		<if test="indentnum != 1">
+			DELETE FROM COMMENT
+			WHERE groupnum=#{groupnum}
+		</if>
+	</delete>
+	
+	<delete id="deleteAllComment">
+		DELETE FROM COMMENT
+		WHERE boardno=#{boardno}
+	</delete>
+</mapper>

@@ -1,0 +1,156 @@
+/*폰트 초기화*/
+@font-face {
+    font-family: '777Balsamtint';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Balsamtint.woff') format('opentype'); 
+    font-weight: normal; 
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24Oneprettynight'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+}
+/*전체 레이아웃 초기화*/
+a {
+    text-decoration: none;
+    color: black;
+}
+li {
+    list-style: none;
+}
+img {
+    border: 0;
+    vertical-align: middle;
+}
+/*메인헤더*/
+#main_header {
+    width: 1700px;
+    height: 170px;
+    margin: 0 auto;
+    position: relative;
+}
+/*로고이미지*/
+#main_header > #logo > a > img{
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    margin-left: 10px;
+}
+/*로고글씨*/
+#logo span {
+    font-family: 'Oswald';
+    margin-left: 90px;
+    line-height: 120px;
+    font-size: 30px;
+}
+#main_header > #logo > a:hover {
+    color: #FFA873;
+}
+/*메뉴*/
+#main_gnb {
+    width: 1200px;
+    left: 190px;
+    bottom: 75px;
+    margin: 0 auto;
+    position: absolute;
+}
+#main_gnb > ul {
+    overflow: hidden;
+    font-family: '777Balsamtint';
+    font-size: 18px;
+}
+#main_gnb > ul > li {
+    float: left;
+}
+#main_gnb > ul > li:nth-of-type(1) {
+    padding: 2px 50px;
+}
+#main_gnb > ul > li:nth-of-type(2) {
+    padding: 2px 50px;
+}
+#main_gnb > ul > li:nth-of-type(3) {
+    padding: 2px 50px;
+}
+#main_gnb > ul > li:nth-of-type(4) {
+    padding: 2px 50px;
+}
+#main_gnb > ul > li > a:hover {
+    color: #FFA873;
+}
+/*로그아웃 버튼*/
+#main_header > #logout_button {
+    position: absolute;
+    right: 0px;
+    top: 30px;
+    margin-right: 50px;
+}
+#logout_button > ul {
+    overflow: hidden;
+    font-family: '777Balsamtint';
+    font-size: 18px;
+}
+#logout_button > ul > li {
+    float: left;
+    padding: 0 50px;
+}
+#logout_button > ul > li:first-child > a {
+    display: block;
+}
+#logout_button > ul > li > a:hover {
+    color: #FFA873;
+}
+/*메인*/
+#main_section {
+    width: 1500px;
+    height: 640px;
+    margin-left: 130px;
+}
+#menu {
+    position: absolute;
+    width: 175px;
+    height: 410px;
+    border: 1px solid black;
+    float: left;
+}
+#menu ul {
+    margin-bottom: 40px;
+}
+#menu ul li {
+    margin-top: 40px;
+    margin-left: 15px;
+}
+#menu ul li a {
+    font-family: '777Balsamtint';
+    font-size: 18px;
+}
+#menu ul li a:hover {
+    color: #FFA873;
+}
+#contents_section {
+    border: 1px solid black;
+    width: 1250px;
+    height: 620px;
+    margin-left: 200px;
+}
+/*하단*/
+#main_footer {
+    width: 100%;
+    margin: 0 auto;
+    border-top: 1px solid lightgray;
+}
+#main_footer > h3, #main_footer > p {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 10px;
+}
+#main_footer > p {
+    padding: 10px 40px;
+}
+#main_footer > p > a {
+    margin-right: 20px;
+    margin-left: 15px;
+}
+#main_footer > p > a:hover {
+    text-decoration: underline;
+}

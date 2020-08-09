@@ -1,0 +1,133 @@
+/*전체 레이아웃 초기화*/
+a {text-decoration: none;color: black;}
+li {list-style: none;}
+/*지도*/
+#map {width: 100%;height: 625px;margin: 0 auto;}
+.map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+.map_wrap {position:relative;width:100%;height:350px; margin-top: 34px;}
+#category {position:absolute;top:0px; margin-top: 35px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
+#category li {float:left;list-style: none;width:55px;px;border-right:1px solid #acacac;padding:6px 0;text-align: center;}
+#category li.on {background: #eee;}
+#category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
+#category a:last-child li{margin-right:0; border-right: 0;}
+#category li span {display: block;margin:0 auto 3px;width:35px;height: 35px;}
+#tour {background:url('../image/tourmarker.png') no-repeat;}
+#hotel {background:url('../image/hotelmarker.png') no-repeat;}
+#restaurant {background:url('../image/restaurantmarker.png') no-repeat;}
+#category li .tour {background-position: 0px -1px;}
+#category li.on .category {background-position-x:-46px;}
+#searchForm {position: absolute; top: 0; display: block; width: 540px; height: 30px; overflow: hidden;z-index: 2;}
+#searchForm input[type=submit] {margin-left: 5px; padding: 5px 10px; border: none; background: #007aff; color: #fff; border-radius: 10px;}
+#searchForm input[type=text] {width: 150px; padding: 5px 10px; padding-left: 10px; border-radius: 20px; border: none; border: 1px solid lightgray;}
+#searchForm input[type=text]:focus {outline: none;}
+.placeinfo_wrap {position:absolute;bottom:28px;left:-150px;width:300px;}
+.placeinfo {position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
+.placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+.placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+.placeinfo a, .placeinfo a:hover, .placeinfo a:active{color:#fff;text-decoration: none;}
+.placeinfo a, .placeinfo span {display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+.placeinfo span {margin:5px 5px 0 5px;cursor: default;font-size:13px;}
+.wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+.wrap * {padding: 0;margin: 0;}
+.wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+.wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+.info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+.info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+.info .close:hover {cursor: pointer;}
+.info .body {position: relative;overflow: hidden;}
+.info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+.desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+.info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+.info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+.info .link {color: #5085BB;}
+.img img {width: 73px;height: 71px;}
+.ellipsis a {text-decoration: underline;color: blue;}
+.title a:hover {text-decoration: underline;}
+footer {margin-top: 274px;}
+button {float: right; margin-bottom: 10px; margin-left: 5px;}
+.categorybutton {border: none; background-color: white; cursor: pointer;}
+#toggle_alarm {display: none;}
+input[type=button] {margin-left: 5px; padding: 5px 10px; border: none; background: #007aff; color: #fff; border-radius: 10px;}
+/** --------------------------------------------------------------------- loding**/
+#loading {
+ width: 100%;  
+ height: 100%;  
+ top: 0px;
+ left: 0px;
+ position: fixed;  
+ display: block;  
+ opacity: 0.7;  
+ background-color: #fff;
+ z-index: 9999;  
+ text-align: center; } 
+  
+#loading-image {  
+ position: absolute;  
+ top: 50%;  
+ left: 50%; 
+ z-index: 100; }
+/** --------------------------------------------------------------------- toggle**/
+div.toggleWrap {  
+  position: relative;
+  width: 100px;
+  margin-top: 10px;
+  padding: 0 10px;
+  float: right;
+}
+
+div.toggleWrap > span {
+  color: gray;
+  font-size: 13px;
+  line-height: 2;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+input:active + div label,
+input:checked + div label {
+  border: 10px solid #007aff;
+  box-shadow: 0 0 5px #007aff;
+}
+
+input:active + div label > span,
+input:checked + div label > span {
+  left: 18px;
+}
+
+.toggleWrap > div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 10px;
+  width: 34px;
+  height: 20px;
+  margin-top: 3px;
+}
+
+label {
+  display: block;
+  width: 36px;
+  height: 20px;
+  box-sizing: border-box;
+  border-radius: 36px;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+label > span {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25), 0 3px 3px 0 rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.275, -0.45, 0.725, 1.45);
+  background: #fff;
+}

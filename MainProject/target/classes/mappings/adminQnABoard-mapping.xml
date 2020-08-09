@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AdminQnABoardDAO">
+	<resultMap id="adminQnABoardResult" type="qnaboardDTO">
+		<id property="no" column="NO" />
+		<result property="title" column="TITLE" />
+		<result property="contents" column="CONTENTS" />
+		<result property="groupnum" column="GROUPNUM" />
+		<result property="stepnum" column="STEPNUM" />
+		<result property="indentnum" column="INDENTNUM" />
+		<result property="hit" column="HIT" />
+		<result property="membernickname" column="MEMBERNICKNAME" />
+		<result property="open" column="OPEN" />
+		<result property="category" column="CATEGORY" />
+		<result property="wtime" column="WTIME" />
+		<result property="receiver" column="RECEIVER" />
+	</resultMap>
+	
+	<select id="selectQuestion" resultMap="adminQnABoardResult">
+		SELECT *
+		FROM QNABOARD
+		WHERE groupnum=#{groupnum} AND stepnum=0
+	</select>
+	
+	<select id="selectAnswer" resultMap="adminQnABoardResult">
+		SELECT *
+		FROM QNABOARD
+		WHERE groupnum=#{groupnum} AND stepnum=1
+	</select>
+	
+	<select id="selectQuestionByNumber" resultMap="adminQnABoardResult">
+		SELECT *
+		FROM QNABOARD
+		WHERE no=#{no}
+	</select>
+	
+	<insert id="answerQuestion">
+		INSERT INTO QNABOARD(title, contents, groupnum, stepnum, indentnum, membernickname, category, receiver, open)
+		VALUES(#{title}, #{contents}, #{groupnum}, #{stepnum}, #{indentnum}, #{membernickname}, #{category}, #{receiver}, #{open})
+	</insert>
+	
+	<update id="updateAnswerStatusOfQuestion">
+		UPDATE QNABOARD
+		SET answer=#{answer}
+		WHERE groupnum=#{groupnum} AND stepnum=0
+	</update>
+	
+	<update id="updateAnswer">
+		UPDATE QNABOARD
+		SET title=#{title}, contents=#{contents}
+		WHERE no=#{no}
+	</update>
+	
+	<delete id="deleteAnswer">
+		DELETE FROM QNABOARD
+		WHERE no=#{no}
+	</delete>
+	
+	<delete id="deleteQnA">
+		DELETE FROM QNABOARD
+		WHERE groupnum=#{groupnum}
+	</delete>
+	
+	<delete id="multiDeleteQnA" parameterType="String">
+		DELETE FROM QNABOARD
+		WHERE groupnum IN ${value}
+	</delete>
+</mapper>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BoardDAO">
+	<resultMap id="boardResult" type="boardDTO">
+		<id property="no" column="NO" />
+		<result property="title" column="TITLE" />
+		<result property="contents" column="CONTENTS" />
+		<result property="wtime" column="WTIME" />
+		<result property="hit" column="HIT" />
+		<result property="membernickname" column="MEMBERNICKNAME" />
+		<result property="notice" column="NOTICE" />
+	</resultMap>
+	
+	<select id="selectBoard" resultType="boardDTO">
+		SELECT b.no, b.title, b.contents, b.wtime, b.hit, b.membernickname, b.notice,
+		(SELECT COUNT(*) FROM COMMENT WHERE boardno=b.no) AS commentCnt
+		FROM BOARD b
+		WHERE b.no=#{no}
+	</select>
+	
+	<update id="increaseHit">
+		UPDATE BOARD
+		SET hit=hit+1
+		WHERE no=#{no}
+	</update>
+	
+	<insert id="insertBoard">
+		INSERT INTO BOARD(TITLE, CONTENTS, MEMBERNICKNAME, NOTICE)
+		VALUES(#{title}, #{contents}, #{membernickname}, #{notice})
+	</insert>
+	
+	<update id="updateBoard">
+		UPDATE BOARD
+		SET TITLE=#{title}, CONTENTS=#{contents}
+		WHERE no=#{no}
+	</update>
+	
+	<delete id="deleteBoard">
+		DELETE FROM BOARD
+		WHERE no=#{no}
+	</delete>
+</mapper>

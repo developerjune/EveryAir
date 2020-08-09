@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<typeAliases>
+		<typeAlias type="com.everyair.www.dto.BoardDTO" alias="boardDTO"></typeAlias>
+		<typeAlias type="com.everyair.www.dto.MemberDTO" alias="memberDTO"></typeAlias>
+		<typeAlias type="com.everyair.www.dto.ConfirmNumDTO" alias="confirmnumDTO"></typeAlias>
+		<typeAlias type="com.everyair.www.dto.CommentDTO" alias="commentDTO"></typeAlias>
+		<typeAlias type="com.everyair.www.dto.ContentDTO" alias="contentDTO"></typeAlias>
+		<typeAlias type="com.everyair.www.dto.ImageDTO" alias="imageDTO"></typeAlias>
+		<typeAlias type="com.everyair.www.dto.QnABoardDTO" alias="qnaboardDTO"></typeAlias>
+		<typeAlias type="com.everyair.www.dto.RegionDTO" alias="regionDTO"></typeAlias>
+		<typeAlias type="com.everyair.www.dto.PagingDTO" alias="pagingDTO"></typeAlias>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="mappings/adminMember-mapping.xml" />
+		<mapper resource="mappings/adminContent-mapping.xml" />
+		<mapper resource="mappings/adminBoard-mapping.xml" />
+		<mapper resource="mappings/adminQnABoard-mapping.xml" />
+		<mapper resource="mappings/viewbymap-mapping.xml" />
+		<mapper resource="mappings/viewbylist-mapping.xml" />
+		<mapper resource="mappings/board-mapping.xml" />
+		<mapper resource="mappings/comment-mapping.xml" />
+		<mapper resource="mappings/qnaBoard-mapping.xml" />
+		<mapper resource="mappings/member-mapping.xml" />
+		<mapper resource="mappings/paging-mapping.xml" />
+		<mapper resource="mappings/image-mapping.xml" />
+		<mapper resource="mappings/region-mapping.xml" />
+	</mappers>
+</configuration>

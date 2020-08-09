@@ -1,0 +1,123 @@
+/*폰트 초기화*/
+@font-face {
+    font-family: '777Balsamtint';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Balsamtint.woff') format('opentype'); 
+    font-weight: normal; 
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24Oneprettynight'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+}
+/*전체 레이아웃 초기화*/
+a {
+    text-decoration: none;
+    color: black;
+}
+li {
+    list-style: none;
+}
+img {
+    border: 0;
+    vertical-align: middle;
+}
+#title > pre {
+    text-align: center;
+}
+#title > pre > b {
+    font-size: 20px;
+}
+.checkbox-wrap { 
+    cursor: pointer; 
+}
+.checkbox-wrap .check-icon  { 
+    display: inline-block; 
+    width: 30px; 
+    height: 18px; 
+    background: url(../image/star.png) left center no-repeat;
+}
+.checkbox-wrap input[type=checkbox] { 
+    display: none; 
+}
+.checkbox-wrap input[type=checkbox]:checked + .check-icon { 
+    background-image: url(../image/yellowstar.png); 
+}
+/*사진 컨텐츠 공간*/
+#container  {
+    width: 1000px;
+    margin: 0 auto;
+}
+.mySlides {
+    margin-left: 180px;
+    margin-bottom: 20px;
+    display: none;
+}
+.mySlides img {
+	width: 650px;
+	height: 450px;
+}
+.cursor {
+  cursor: pointer;
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 450px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.prev {
+    margin-left: 180px;
+}
+.next {
+    margin-left: 785px;
+    border-radius: 3px 0 0 3px;
+}
+.row {
+	margin-left: 60px;
+	overflow:hidden;
+}
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.column {
+    float: left;
+    width: 150px;
+    height: 100px;
+}
+.column > img {
+    width: 150px;
+    height: 100px;
+}
+.demo {
+    opacity: 0.6;
+}
+.active, .demo:hover {
+    opacity: 1;
+}
+/*상세정보*/
+#description {
+    margin-left: 60px;
+    margin-top: 40px;
+    width: 
+}
+#description {
+    font-family: '777Balsamtint';
+    font-size: 18px;
+    word-break:break-all;
+}
+#description pre {
+	height: auto;
+	resize: none;
+	border: none;
+	font-size: 16px;
+	font-family: Cafe24Oneprettynight;
+}
+.url:hover {text-decoration: underline;}

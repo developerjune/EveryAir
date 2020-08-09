@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AdminContentDAO">
+	<resultMap id="adminContentResult" type="contentDTO">
+		<id property="no" column="NO" />
+		<result property="name" column="NAME" />
+		<result property="address" column="ADDRESS" />
+		<result property="coordinate" column="COORDINATE" />
+		<result property="category" column="CATEGORY" />
+		<result property="description" column="DESCRIPTION" />
+		<result property="registdate" column="REGISTDATE" />
+		<result property="hit" column="HIT" />
+		<result property="open" column="OPEN" />
+		<result property="thumbnail" column="THUMBNAIL" />
+		<result property="phone" column="PHONE" />
+		<result property="url" column="URL" />
+	</resultMap>
+	
+	<select id="selectContent" resultMap="adminContentResult">
+		SELECT *
+		FROM CONTENT
+		WHERE no=#{no}
+	</select>
+	
+	<select id="selectThumbnail" resultType="String">
+		SELECT thumbnail
+		FROM CONTENT
+		WHERE no=#{no}
+	</select>
+	
+	<insert id="insertContent">
+		INSERT INTO CONTENT(name, address, coordinate, category, description, open, thumbnail, phone, url)
+		VALUES(#{name}, #{address}, #{coordinate}, #{category}, #{description}, #{open}, #{thumbnail}, #{phone}, #{url})
+	</insert>
+	
+	<update id="updateContent">
+		UPDATE CONTENT
+		SET name=#{name}, address=#{address}, coordinate=#{coordinate}, category=#{category}, description=#{description}, open=#{open}, phone=#{phone}, url=#{url}
+		WHERE no=#{no}
+	</update>
+	
+	<update id="updateThumbnail">
+		UPDATE CONTENT
+		SET thumbnail=#{thumbnail}
+		WHERE no=#{no}
+	</update>
+	
+	<delete id="deleteContent">
+		DELETE FROM CONTENT
+		WHERE no=#{no}
+	</delete>
+	
+	<delete id="multiDeleteContent" parameterType="String">
+		DELETE FROM CONTENT
+		WHERE no IN ${value}
+	</delete>
+</mapper>

@@ -1,0 +1,39 @@
+#main_content {
+	width: 500px;
+	height: 300px;
+	margin: 0 auto;
+}
+
+table {
+	margin: 0 auto;
+	border-collapse: collapse;
+	border-color: white;
+}
+
+h3 {
+	text-align: center;
+}
+
+td {
+	padding: 10px;
+	border-color: white;
+}
+
+tr td:first-child {
+	background-color: #384D6D;
+}
+
+input[type=submit] {
+	padding: 5px 8px 4px 8px;
+	margin: 2px;
+	border: #ccc 1px solid;
+	text-decoration: none;
+	font-size: 13px;
+	margin-left: 230px;
+	margin-top: 20px;
+}
+
+input[type=submit]:hover {
+	border: #999 1px solid;
+	color: #666;
+}

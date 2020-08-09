@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AdminMemberDAO">
+	<resultMap id="adminMemberResult" type="memberDTO">
+		<id property="no" column="NO" />
+		<result property="id" column="ID" />
+		<result property="pw" column="PW" />
+		<result property="nickname" column="NICKNAME" />
+		<result property="email" column="EMAIL" />
+		<result property="phonenumber" column="PHONENUMBER" />
+		<result property="subscriptiondate" column="SUBSCRIPTIONDATE" />
+		<result property="denied" column="DENIED" />
+	</resultMap>
+	
+	<select id="selectMember" resultMap="adminMemberResult">
+		SELECT *
+		FROM MEMBER
+		WHERE no=#{no}
+	</select>
+	
+	<update id="updateMember">
+		UPDATE MEMBER
+		SET id=#{id}, pw=#{pw}, nickname=#{nickname}, email=#{email}, phonenumber=#{phonenumber}, denied=#{denied}
+		WHERE no=#{no}
+	</update>
+	
+	<delete id="deleteMember">
+		DELETE FROM MEMBER
+		WHERE no=#{no}
+	</delete>
+	
+	<delete id="multiDeleteMember" parameterType="String">
+		DELETE FROM MEMBER
+		WHERE no IN ${value}
+	</delete>
+</mapper>

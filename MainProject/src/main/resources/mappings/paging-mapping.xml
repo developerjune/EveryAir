@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PagingDAO">
+	<select id="pagedListMember" resultType="memberDTO" parameterType="pagingDTO">
+		SELECT *
+		FROM MEMBER
+		<if test="keyword != null and keyword != ''">
+			<if test="searchType == 'match'">
+				<include refid="memberMatchKeywordQuery"></include>
+			</if>
+			<if test="searchType == 'contain'">
+				<include refid="memberContainKeywordQuery"></include>
+			</if>
+		</if>
+		<if test="keyword == null or keyword == ''">
+			WHERE denied=#{denied}
+		</if>
+		ORDER BY no DESC LIMIT 10 OFFSET #{offset}
+	</select>
+	
+	<select id="pagedListContent" resultType="contentDTO" parameterType="pagingDTO">
+		SELECT *
+		FROM CONTENT
+		<if test="keyword != null and keyword != ''">
+			<if test="searchType == 'match'">
+				<include refid="contentMatchKeywordQuery"></include>
+			</if>
+			<if test="searchType == 'contain'">
+				<include refid="contentContainKeywordQuery"></include>
+			</if>
+		</if>
+		<if test="keyword == null or keyword == ''">
+			WHERE open=#{open}
+		</if>
+		ORDER BY no DESC LIMIT 10 OFFSET #{offset}
+	</select>
+	
+	<select id="adminPagedListBoard" resultType="boardDTO" parameterType="pagingDTO">
+		SELECT * FROM BOARD
+		<if test="term == 'all'">
+			<include refid="boardAllTermSearchQuery"></include>
+		</if>
+		<if test="term != 'all' and term != 'selectDate'">
+			<include refid="boardTermSearchQuery"></include>
+		</if>
+		<if test="term == 'selectDate'">
+			<include refid="boardDateSearchQuery"></include>
+		</if>
+		ORDER BY notice DESC, no DESC LIMIT 10 OFFSET #{offset}
+	</select>
+	
+	<select id="pagedListBoard" resultType="boardDTO" parameterType="pagingDTO">
+		SELECT b.no, b.title, b.contents, b.wtime, b.hit, b.membernickname, b.notice,
+		(SELECT COUNT(*) FROM COMMENT WHERE boardno=b.no) AS commentCnt
+		FROM BOARD b
+		<if test="term == 'all'">
+			<include refid="boardAllTermSearchQuery"></include>
+		</if>
+		<if test="term != 'all' and term != 'selectDate'">
+			<include refid="boardTermSearchQuery"></include>
+		</if>
+		<if test="term == 'selectDate'">
+			<include refid="boardDateSearchQuery"></include>
+		</if>
+		ORDER BY b.notice DESC, b.no DESC LIMIT 10 OFFSET #{offset}
+	</select>
+	
+	<select id="adminPagedListQnABoard" resultType="qnaboardDTO" parameterType="pagingDTO">
+		SELECT *
+		FROM QNABOARD
+		<choose>
+			<when test="term == 'all'">
+				<include refid="boardAllTermSearchQuery"></include>
+				AND indentnum=0
+			</when>
+			<when test="term != 'all' and term != 'selectDate' and term !='' and term != null">
+				<include refid="boardTermSearchQuery"></include>
+				AND indentnum=0
+			</when>
+			<when test="term == 'selectDate'">
+				<include refid="boardDateSearchQuery"></include>
+				AND indentnum=0
+			</when>
+			<otherwise>
+				WHERE indentnum=0
+			</otherwise>
+		</choose>
+		ORDER BY no DESC LIMIT 10 OFFSET #{offset}
+	</select>
+	
+	<select id="pagedListQnABoard" resultType="qnaboardDTO" parameterType="pagingDTO">
+		SELECT *
+		FROM QNABOARD
+		<choose>
+			<when test="term == 'all'">
+				<include refid="boardAllTermSearchQuery"></include>
+			</when>
+			<when test="term != 'all' and term != 'selectDate' and term !='' and term != null">
+				<include refid="boardTermSearchQuery"></include>
+			</when>
+			<when test="term == 'selectDate'">
+				<include refid="boardDateSearchQuery"></include>
+			</when>
+		</choose>
+		ORDER BY groupnum DESC, stepnum ASC LIMIT 10 OFFSET #{offset}
+	</select>
+	
+	<select id="getMemberCount" resultType="int" parameterType="pagingDTO">
+		SELECT COUNT(*)
+		FROM MEMBER
+		<if test="keyword != null and keyword != ''">
+			<if test="searchType == 'match'">
+				<include refid="memberMatchKeywordQuery"></include>
+			</if>
+			<if test="searchType == 'contain'">
+				<include refid="memberContainKeywordQuery"></include>
+			</if>
+		</if>
+		<if test="keyword == null or keyword == ''">
+			WHERE denied=#{denied}
+		</if>
+	</select>
+	
+	<select id="getContentCount" resultType="int" parameterType="pagingDTO">
+		SELECT COUNT(*)
+		FROM CONTENT
+		<if test="keyword != null and keyword != ''">
+			<if test="searchType == 'match'">
+				<include refid="contentMatchKeywordQuery"></include>
+			</if>
+			<if test="searchType == 'contain'">
+				<include refid="contentContainKeywordQuery"></include>
+			</if>
+		</if>
+		<if test="keyword == null or keyword == ''">
+			WHERE open=#{open}
+		</if>
+	</select>
+	
+	<select id="getBoardCount" resultType="int" parameterType="pagingDTO">
+		SELECT COUNT(*)
+		FROM BOARD
+		<if test="term == 'all'">
+			<include refid="boardAllTermSearchQuery"></include>
+		</if>
+		<if test="term != 'all' and term != 'selectDate'">
+			<include refid="boardTermSearchQuery"></include>
+		</if>
+		<if test="term == 'selectDate'">
+			<include refid="boardDateSearchQuery"></include>
+		</if>
+	</select>
+	
+	<select id="getQnABoardCount" resultType="int" parameterType="pagingDTO">
+		SELECT COUNT(*)
+		FROM QNABOARD
+		<choose>
+			<when test="term == 'all'">
+				<include refid="boardAllTermSearchQuery"></include>
+			</when>
+			<when test="term != 'all' and term != 'selectDate' and term !='' and term != null">
+				<include refid="boardTermSearchQuery"></include>
+			</when>
+			<when test="term == 'selectDate'">
+				<include refid="boardDateSearchQuery"></include>
+			</when>
+		</choose>
+	</select>
+	
+	<select id="getAdminQnABoardCount" resultType="int" parameterType="pagingDTO">
+		SELECT COUNT(*)
+		FROM QNABOARD
+		<choose>
+			<when test="term == 'all'">
+				<include refid="boardAllTermSearchQuery"></include>
+				AND indentnum=0
+			</when>
+			<when test="term != 'all' and term != 'selectDate' and term !='' and term != null">
+				<include refid="boardTermSearchQuery"></include>
+				AND indentnum=0
+			</when>
+			<when test="term == 'selectDate'">
+				<include refid="boardDateSearchQuery"></include>
+				AND indentnum=0
+			</when>
+			<otherwise>
+				WHERE indentnum=0
+			</otherwise>
+		</choose>
+	</select>
+	
+	<sql id="memberMatchKeywordQuery">
+		<if test="keywordType == 'id'">
+			WHERE id=#{keyword}
+		</if>
+		<if test="keywordType == 'nickname'">
+			WHERE nickname=#{keyword}
+		</if>
+		<if test="keywordType == 'email'">
+			WHERE email=#{keyword}
+		</if>
+		<if test="keywordType == 'phonenumber'">
+			WHERE phonenumber=#{keyword}
+		</if>
+		AND denied=#{denied}
+	</sql>
+	
+	<sql id="memberContainKeywordQuery">
+		<if test="keywordType == 'id'">
+			WHERE id LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test="keywordType == 'nickname'">
+			WHERE nickname LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test="keywordType == 'email'">
+			WHERE email LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test="keywordType == 'phonenumber'">
+			WHERE phonenumber LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		AND denied=#{denied}
+	</sql>
+	
+	<sql id="contentMatchKeywordQuery">
+		<if test="keywordType == 'name'">
+			WHERE name=#{keyword}
+		</if>
+		<if test="keywordType == 'address'">
+			WHERE address=#{keyword}
+		</if>
+		<if test="keywordType == 'phone'">
+			WHERE phone=#{keyword}
+		</if>
+		AND open=#{open}
+	</sql>
+	
+	<sql id="contentContainKeywordQuery">
+		<if test="keywordType == 'name'">
+			WHERE name LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test="keywordType == 'address'">
+			WHERE address LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test="keywordType == 'phone'">
+			WHERE phone LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test="keywordType == 'nameAndAddress'">
+			WHERE name LIKE CONCAT('%', #{keyword}, '%') OR address LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test="category != null and category != ''">
+			AND category=#{category}
+		</if>
+		AND open=#{open}
+	</sql>
+	
+	<sql id="boardAllTermSearchQuery">
+		<if test="keyword != null and keyword != ''">
+			<choose>
+				<when test="keywordType == 'titleandcontents'">
+					WHERE (title LIKE CONCAT('%', #{keyword}, '%') OR contents LIKE CONCAT('%', #{keyword}, '%'))
+				</when>
+				<when test="keywordType == 'title'">
+					WHERE (title LIKE CONCAT('%', #{keyword}, '%'))
+				</when>
+				<when test="keywordType == 'contents'">
+					WHERE (contents LIKE CONCAT('%', #{keyword}, '%'))
+				</when>
+				<when test="keywordType == 'category'">
+					WHERE (category LIKE CONCAT('%', #{keyword}, '%'))
+				</when>
+				<otherwise>
+					WHERE (membernickname LIKE CONCAT('%', #{keyword}, '%'))
+				</otherwise>
+			</choose>
+		</if>
+	</sql>
+	
+	<sql id="boardTermSearchQuery">
+		<if test="term == 'day'">
+			WHERE (wtime BETWEEN DATE_FORMAT(DATE_ADD(CURRENT_TIMESTAMP, INTERVAL-1 DAY), '%Y-%m-%d %H:%i:%s') AND CURRENT_TIMESTAMP())
+		</if>
+		<if test="term == 'week'">
+			WHERE (wtime BETWEEN DATE_FORMAT(DATE_ADD(CURRENT_TIMESTAMP, INTERVAL-1 WEEK), '%Y-%m-%d %H:%i:%s') AND CURRENT_TIMESTAMP())
+		</if>
+		<if test="term == 'month'">
+			WHERE (wtime BETWEEN DATE_FORMAT(DATE_ADD(CURRENT_TIMESTAMP, INTERVAL-1 MONTH), '%Y-%m-%d %H:%i:%s') AND CURRENT_TIMESTAMP())
+		</if>
+		<if test="term == 'year'">
+			WHERE (wtime BETWEEN DATE_FORMAT(DATE_ADD(CURRENT_TIMESTAMP, INTERVAL-1 YEAR), '%Y-%m-%d %H:%i:%s') AND CURRENT_TIMESTAMP())
+		</if>
+		<if test="keywordType == 'titleandcontents'">
+			AND (title LIKE CONCAT('%', #{keyword}, '%') OR contents LIKE CONCAT('%', #{keyword}, '%'))
+		</if>
+		<if test="keywordType == 'title'">
+			AND (title LIKE CONCAT('%', #{keyword}, '%'))
+		</if>
+		<if test="keywordType == 'contents'">
+			AND (contents LIKE CONCAT('%', #{keyword}, '%'))
+		</if>
+		<if test="keywordType == 'membernickname'">
+			AND (membernickname LIKE CONCAT('%', #{keyword}, '%'))
+		</if>
+		<if test="keywordType == 'category'">
+			AND (category LIKE CONCAT('%', #{keyword}, '%'))
+		</if>
+	</sql>
+	
+	<sql id="boardDateSearchQuery">
+		<if test="keywordType == 'titleandcontents'">
+			WHERE wtime BETWEEN #{startdate} AND #{enddate}
+			AND (title LIKE CONCAT('%', #{keyword}, '%') OR contents LIKE CONCAT('%', #{keyword}, '%'))
+		</if>
+		<if test="keywordType == 'title'">
+			WHERE wtime BETWEEN #{startdate} AND #{enddate}
+			AND (title LIKE CONCAT('%', #{keyword}, '%'))
+		</if>
+		<if test="keywordType == 'contents'">
+			WHERE wtime BETWEEN #{startdate} AND #{enddate}
+			AND (contents LIKE CONCAT('%', #{keyword}, '%'))
+		</if>
+		<if test="keywordType == 'membernickname'">
+			WHERE wtime BETWEEN #{startdate} AND #{enddate}
+			AND (membernickname LIKE CONCAT('%', #{keyword}, '%'))
+		</if>
+		<if test="keywordType == 'category'">
+			WHERE wtime BETWEEN #{startdate} AND #{enddate}
+			AND (category LIKE CONCAT('%', #{keyword}, '%'))
+		</if>
+	</sql>
+</mapper>

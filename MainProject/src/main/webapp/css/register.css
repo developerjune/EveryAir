@@ -1,0 +1,90 @@
+input {
+    padding:8px;display:block;border:none;border-bottom:1px solid #ccc;
+}
+input[type=submit] {
+    background: black;
+    color: white;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+header {
+    width: 1000px;
+    margin: 0 auto;
+}
+.title {
+    font-family: 'Oswald';
+    font-size: 100px;
+    color: black;
+    margin-left: 350px;
+}
+#main_form {
+    width: 1000px;
+    margin: 0 auto;
+}
+header > h2 {
+    text-align: center;
+}
+table {
+    border-collapse: collapse;
+    margin-left: 310px;
+}
+table tr th {
+    text-align: right;
+}
+table tr td {
+    padding-left: 27px;
+    padding-bottom: 10px;
+}
+table tr:nth-of-type(4) td:nth-of-type(2) input {
+    margin-left: 20px;
+}
+table tr:nth-of-type(4) td:nth-of-type(3) select {
+    padding:8px;
+}
+/*하단*/
+#main_footer {
+    width: 100%;
+    margin: 0 auto;
+    border-top: 1px solid lightgray;
+    margin-top: 250px;
+}
+#main_footer > h3, #main_footer > p {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 10px;
+}
+#main_footer > p {
+    padding: 10px 40px;
+}
+#main_footer > p > a {
+    margin-right: 20px;
+    margin-left: 15px;
+}
+#main_footer > p > a:hover {
+    text-decoration: underline;
+}
+#warning {
+	color: red;
+	font-size: 12px;
+	display: none;
+}
+#submitbutton {
+	margin-top: 20px;
+	margin-left: 20px;
+	padding: 10px 20px;
+}
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input:focus {outline: none;}
+#ableIdMessage {font-size: 13px; color: #007aff;}
+#disableIdMessage {font-size: 13px; color: red;}
+#ableNicknameMessage {font-size: 13px; color: #007aff;}
+#disableNicknameMessage {font-size: 13px; color: red;}
+#wrongIdMessage {font-size: 13px; color: red;}
+#lengthIdMessage {font-size: 13px; color: red;}
+#wrongNicknameMessage {font-size: 13px; color: red;}
+#lengthNicknameMessage {font-size: 13px; color: red;}
+#domain {padding: 8px; }

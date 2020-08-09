@@ -1,0 +1,1 @@
+$("comments").load(window.location.href + "comments");

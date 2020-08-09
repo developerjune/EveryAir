@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="QnABoardDAO">
+	<resultMap id="qnaBoardResult" type="qnaboardDTO">
+		<id property="no" column="NO" />
+		<result property="title" column="TITLE" />
+		<result property="contents" column="CONTENTS" />
+		<result property="groupnum" column="GROUPNUM" />
+		<result property="stepnum" column="STEPNUM" />
+		<result property="indentnum" column="INDENTNUM" />
+		<result property="hit" column="HIT" />
+		<result property="membernickname" column="MEMBERNICKNAME" />
+		<result property="open" column="OPEN" />
+		<result property="category" column="CATEGORY" />
+		<result property="wtime" column="WTIME" />
+		<result property="receiver" column="RECEIVER" />
+	</resultMap>
+	
+	<select id="selectQnABoard" resultMap="qnaBoardResult">
+		SELECT *
+		FROM QNABOARD
+		WHERE no=#{no}
+	</select>
+	
+	<insert id="insertQuestion">
+		INSERT INTO QNABOARD(title, contents, groupnum, membernickname, category, open, answer)
+		VALUES(#{title}, #{contents}, #{groupnum}, #{membernickname}, #{category}, #{open}, #{answer})
+	</insert>
+	
+	<update id="updateQnA">
+		UPDATE QNABOARD
+		SET title=#{title}, contents=#{contents}, category=#{category}, open=#{open}
+		WHERE no=#{no}
+	</update>
+	
+	<delete id="deleteQnA">
+		DELETE FROM QNABOARD
+		WHERE groupnum=#{groupnum}
+	</delete>
+	
+	<update id="increaseHit">
+		UPDATE QNABOARD
+		SET hit=hit+1
+		WHERE no=#{no}
+	</update>
+	
+	<select id="selectMaxNum" resultType="int">
+		SELECT IFNULL(MAX(no), 0)
+		FROM QNABOARD
+	</select>
+</mapper>

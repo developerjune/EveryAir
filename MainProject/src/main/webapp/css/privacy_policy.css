@@ -1,0 +1,41 @@
+/*폰트 초기화*/
+@font-face {
+    font-family: '777Balsamtint';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Balsamtint.woff') format('opentype'); 
+    font-weight: normal; 
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24Oneprettynight'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+}
+/*전체 레이아웃 초기화*/
+a {
+    text-decoration: none;
+    color: black;
+}
+li {
+    list-style: none;
+}
+img {
+    border: 0;
+    vertical-align: middle;
+}
+/*메인*/
+#main_content {
+    margin: 0 100px;
+    margin-bottom: 50px;
+}
+.main_article {
+    margin: 20px;
+    font-family: 'Noto Sans KR';
+}
+.main_article pre {
+    font-family: 'Noto Sans KR';
+    font-size: 13px;
+}
+.main_article:first-child {
+    border-bottom: 1px solid black;
+}

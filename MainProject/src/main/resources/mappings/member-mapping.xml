@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemberDAO">
+	<select id="checkAccount" resultType="memberDTO">
+		<![CDATA[
+		SELECT *
+		FROM MEMBER
+		WHERE ID=#{id} AND PW=#{pw}
+		]]>
+	</select>
+	
+	<select id="getMember" resultType="memberDTO">
+		<![CDATA[
+		SELECT *
+		FROM MEMBER
+		WHERE ID=#{id}
+		]]>
+	</select>
+	
+	<select id="getNickname" resultType="String">
+		SELECT NICKNAME
+		FROM MEMBER
+		WHERE ID=#{id}
+	</select>
+	
+	<insert id="registMember">
+		<![CDATA[
+		INSERT INTO MEMBER(ID, PW, NICKNAME, EMAIL, PHONENUMBER, DENIED)
+		VALUES(#{id}, #{pw}, #{nickname}, #{email}, #{phonenumber}, 'Y')
+		]]>
+	</insert>
+	
+	<select id="selectID" resultType="String">
+		SELECT ID
+		FROM MEMBER
+		WHERE ID=#{id}
+	</select>
+	
+	<select id="selectNickname" resultType="String">
+		<![CDATA[
+		SELECT NICKNAME
+		FROM MEMBER
+		WHERE NICKNAME=#{nickname}
+		]]>
+	</select>
+	
+	<select id="selectPhoneNumber" resultType="String">
+		<![CDATA[
+		SELECT PHONENUMBER
+		FROM MEMBER
+		WHERE PHONENUMBER=#{phonenumber}
+		]]>
+	</select>
+	
+	<insert id="insertConfirmnum" >
+		<![CDATA[
+		INSERT INTO CONFIRMNUM(CONFIRMNUMBER)
+		VALUES(#{confirmnumber});
+		]]>
+	</insert>
+	
+	<select id="checkConfirmnum" resultType="String">
+		<![CDATA[
+		SELECT CONFIRMNUMBER
+		FROM CONFIRMNUM
+		WHERE CONFIRMNUMBER=#{confirmnumber}
+		]]>
+	</select>
+	
+	<select id="getMaxConfirmnum" resultType="int">
+		<![CDATA[
+		SELECT MAX(NO)
+		FROM CONFIRMNUM
+		]]>
+	</select>
+	
+	<delete id="deleteAllConfirmnum">
+		<![CDATA[
+		DELETE FROM CONFIRMNUM
+		]]>
+	</delete>
+</mapper>

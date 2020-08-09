@@ -1,0 +1,105 @@
+/*폰트 초기화*/
+@font-face {
+    font-family: '777Balsamtint';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Balsamtint.woff') format('opentype'); 
+    font-weight: normal; 
+    font-style: normal;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+h3 {
+    margin-left: 570px;
+}
+.content {
+    margin-left: 250px;
+}
+.content div {
+    margin-right: 350px;
+    margin-left: 100px;
+    border: 1px solid black;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    font-family: '777Balsamtint';
+    font-size: 20px;
+}
+.content div a img {
+    float: left;
+    width: 100px;
+    margin-top: 22px;
+    margin-left: 30px;
+}
+.content div h3 {
+    margin-left: 160px;
+    font-size: 18px;
+}
+.content div h3 a:hover {
+    color: #FFA873;
+}
+.content div > span {
+    margin-left: 30px;
+    font-size: 15px;
+}
+.content div > p {
+    margin-left: 190px;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+#button {
+    margin-left: 370px;
+    margin-top: 10px;
+    border: none;
+}
+#button input[type=submit] {
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    margin-left: 40px;
+    background: black;
+    color: white;
+}
+#button input[type=submit]:hover {
+    color: black;
+    background: lightgray;
+}
+.content {
+    display: block;
+}
+.content input[type=radio] {
+    float: left;
+    margin-top: 80px;
+    margin-left: 70px;
+    display: none;
+}
+#button input:last-child {
+    display: none;
+}
+.content .updown {
+    float: right;
+}
+.content .updown:nth-of-type(1) {
+    margin-right: 290px;
+    display: none;
+}
+
+.content .updown {
+    margin-right: 290px;
+    display: none;
+}
+
+.updown:nth-of-type(1):active {
+    display: none;
+}
+
+.updown:nth-of-type(1):active ~ .updown:nth-of-type(2) {
+    display: block;
+}
+
+.updown:first-child:active {
+    display: none;
+}
+
+.updown:first-child:active ~ .updown:last-child {
+    display: block;
+}

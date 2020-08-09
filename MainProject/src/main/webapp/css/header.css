@@ -1,0 +1,234 @@
+/*전체 레이아웃 초기화*/
+a {
+    text-decoration: none;
+    color: black;
+}
+li {
+    list-style: none;
+}
+img {
+    border: 0;
+}
+/*메인헤더*/
+#main_header {
+    width: 1700px;
+    height: 170px;
+    margin: 0 auto;
+    position: relative;
+}
+/*로고글씨*/
+#logo a {
+    font-family: 'Oswald';
+    line-height: 135px;
+    font-size: 30px;
+    color: #007aff;
+}
+#logo > a:hover {
+    color: #FFA873;
+}
+/*메뉴*/
+#main_gnb {
+    width: 850px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 75px;
+    margin-left: 100px;
+}
+#main_gnb > ul {
+    overflow: hidden;
+    font-family: 'NanumSquare', sans-serif !important;
+    font-size: 14px;
+}
+#main_gnb > ul > li {
+    float: left;
+}
+#main_gnb > ul > li:nth-of-type(1) {
+    padding: 2px 50px;
+}
+#main_gnb > ul > li:nth-of-type(2) {
+    padding: 2px 50px;
+}
+#main_gnb > ul > li:nth-of-type(3) {
+    padding: 2px 50px;
+}
+#main_gnb > ul > li:nth-of-type(4) {
+    padding: 2px 50px;
+}
+#main_gnb > ul > li:nth-of-type(5) {
+    padding: 2px 50px;
+}
+#main_gnb > ul > li > a:hover {
+    color: #FFA873;
+}
+/*로그인버튼*/
+#main_header > #login_button {
+    position: absolute;
+    right: 0px;
+    bottom: 80px;
+}
+#login_button > ul {
+    overflow: hidden;
+    font-family: 'NanumSquare', sans-serif !important;
+    font-size: 14px;
+}
+#login_button > ul > li {
+    float: left;
+    margin-right: 158px;
+}
+#login_button > ul > li > a {
+    display: block;
+    padding: 2px 50px;
+    margin-right: 3px;
+}
+#login_button > ul > li > a:hover {
+    color: #FFA873;
+}
+/*로그아웃 버튼*/
+#main_header > #logout_button {
+    position: absolute;
+    right: 0px;
+    bottom: 95px;
+    margin-right: 50px;
+}
+#logout_button > ul {
+    font-family: 'NanumSquare', sans-serif !important;
+    font-size: 14px;
+}
+#logout_button > ul > li {
+    float: left;
+    padding: 0 50px;
+}
+#logout_button > ul > li:first-child > a {
+    display: block;
+}
+#logout_button > ul > li:last-child > a {
+    display: block;
+}
+#logout_button > ul > li:last-child {
+}
+#logout_button > ul > li > a:hover {
+    color: #FFA873;
+}
+/*상단 배경*/
+#dot {
+    display: none;
+}
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+/*#main_background {
+	width: 100%;
+	height: 900px;
+	background-image: url('../image/main.jpg');
+	background-repeat: no-repeat;
+}*/
+/*#main_background > div {
+    position:relative;
+    width: 1903px; 
+    bottom: 70px;
+}
+#main_background div p:nth-of-type(1) {
+    position: absolute;
+    top: 35px;
+    left: 38px;
+    color: white;
+    font-size: 40pt;
+    font-family: 'BRBA_B';
+}
+#main_background div p:nth-of-type(2) {
+    position:absolute;
+    top:105px;
+    left:38px;
+    color:white;
+    font-size:40pt;
+    font-family: 'BRBA_B';
+}
+#main_background div p:nth-of-type(2) span {
+    font-family: 'Oswald';
+}
+#main_background div p:nth-of-type(3) {
+    position:absolute;
+    top:195px;
+    left:38px;
+    color:white;
+    font-size:40pt;
+    font-family: 'BRBA_B';
+}
+#main_background div > img {
+    width: 100%;
+    height: 780px;
+}*/
+/*하단*/
+#main_footer {
+    width: 100%;
+    margin: 0 auto;
+    border-top: 1px solid lightgray;
+}
+#main_footer > h3, #main_footer > p {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 10px;
+}
+#main_footer > p {
+    padding: 10px 40px;
+}
+#main_footer > p > a {
+    margin-right: 20px;
+    margin-left: 15px;
+}
+#main_footer > p > a:hover {
+    text-decoration: underline;
+}
+#popup_wrap { display:none; position: fixed; top: 0;left: 0; width: 100%; height: 100%;height: 100vh; z-index: 999; background: rgba(0,0,0,.5);}
+#fail_popup_wrap { position: fixed; top: 0;left: 0; width: 100%; height: 100%;height: 100vh; z-index: 999; background: rgba(0,0,0,.5);}
+.login_wrap {position: relative; width:1000px; margin-left: 675px;}
+.popup_login {position:absolute; width:340px; height:320px; background:#fff; border-radius: 20px; z-index: 99999; top:100px; right:0; padding:10px; box-sizing: border-box; text-align: center;}
+.popup_login::before {content: url(../image/pop_triangle.png); position:absolute; top:-15px; right:35px;}
+.popup_login h1 { font-size:25px; font-weight: 600;}
+.popup_login input, .popup_login button { width:250px; padding:12px 20px; font-size:15px; margin-bottom:15px; box-sizing: border-box; border:1px solid #ddd;}
+.popup_login input::placeholder {color:#ccc;}
+.popup_login .login_sub {background: #007aff; color:#fff; border-radius:10px; border:none; margin-top:5px; font-size:15px;}
+.popup_login .login_sub:hover {background: #006add;}
+.mainul {overflow: hidden; display: inline-block; padding:10px 0;}
+.failul {overflow: hidden; display: inline-block; padding:0px 0; margin-top: 5px;}
+.popup_login ul li {float:left;  position:relative;}
+.popup_login ul li a {font-size:14px; padding:0 15px;}
+.popup_login ul li:nth-child(1) a {color:#7792af;}
+.popup_login ul li:nth-child(1)::after {    content: ''; width: 1px;height: 12px;display: inline-block;background: #ddd; position:absolute; top:4px;}
+.popup_login ul li:nth-child(2) a {color:#999;}
+#login_btn {border: none; background-color: white;}
+#login_btn:focus {outline: none; background: white;}
+#login_btn:hover {cursor: pointer; color: #FFA873;}
+.wrongmessage {font-size: 13px; color: red;}
+#mypageicon2 {display: none;}

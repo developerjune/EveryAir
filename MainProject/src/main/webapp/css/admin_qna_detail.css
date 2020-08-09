@@ -1,0 +1,135 @@
+input[type=text] {
+	padding: 3px;
+	width: 955px;
+}
+
+#content_section {
+	width: 1110px;
+	height: 330px;
+	border: 1px solid white;
+	background: #ECF0F7;
+	margin: 0 auto;
+}
+
+body>h3 {
+	text-align: center;
+}
+
+table {
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+	font-size: 13px;
+}
+
+tr, td {
+	border: 1px solid lightgray;
+}
+
+textarea {
+	width: 960px;
+	height: 240px;
+	resize: none;
+}
+
+input[type=submit]:hover {
+	border: #999 1px solid;
+	color: #666;
+}
+.listbutton {
+	margin-left: 890px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px 20px;
+	border: #ccc 1px solid;
+	text-decoration: none;
+	font-size: 13px;
+	background: white;
+	color: black;
+}
+.questionlistbutton {
+	margin-left: 960px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px 20px;
+	border: #ccc 1px solid;
+	text-decoration: none;
+	font-size: 13px;
+	background: white;
+	color: black;
+}
+.listbutton:hover {
+	border: #999 1px solid;
+	color: #666;
+}
+pre {
+	width: 960px;
+	height: 240px;
+	background: white;
+}
+.question {margin-left: 1040px;}
+.questiontable {margin-bottom: 8px;}
+.answerbutton {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px 20px;
+	border: #ccc 1px solid;
+	text-decoration: none;
+	font-size: 13px;
+	background: white;
+	color: black;
+}
+.replyformlistbutton {
+	margin-left: 960px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px 20px;
+	border: #ccc 1px solid;
+	text-decoration: none;
+	font-size: 13px;
+	background: white;
+	color: black;
+}
+
+
+
+.alertbutton {
+	float: right;
+	margin-right: 5px;
+	padding: 5px 20px;
+	border: #ccc 1px solid;
+	text-decoration: none;
+	font-size: 13px;
+	background: white;
+	color: black;
+}
+
+.alertbutton:hover {
+	border: #999 1px solid;
+	color: #666;
+	cursor: pointer;
+}
+.deletebutton {
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px 20px;
+	border: #ccc 1px solid;
+	text-decoration: none;
+	font-size: 13px;
+	background: white;
+}
+.deletebutton:hover {
+	border: #999 1px solid;
+	color: #666;
+	cursor: pointer;
+}
+.modifybutton {
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px 20px;
+	border: #ccc 1px solid;
+	text-decoration: none;
+	font-size: 13px;
+	background: white;
+}

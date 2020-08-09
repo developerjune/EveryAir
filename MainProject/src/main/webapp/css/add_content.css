@@ -1,0 +1,129 @@
+input[type=text] {
+	padding: 3px;
+	width: 90%;
+}
+
+#content_section {
+	width: 1110px;
+	height: 535px;
+	border: 1px solid white;
+	background: #ECF0F7;
+	margin: 0 auto;
+}
+
+body>h3 {
+	text-align: center;
+}
+
+table {
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+	font-size: 13px;
+}
+
+tr, td {
+	border: 1px solid lightgray;
+}
+
+textarea {
+	width: 955px;
+	height: 240px;
+	resize: none;
+}
+
+#map {
+	width: 1110px;
+	height: 350px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+input[type=button] {
+	padding: 3px 8px 4px 8px;
+	border: #ccc 1px solid;
+	text-decoration: none;
+	font-size: 13px;
+	background: white;
+}
+
+input[type=submit] {
+	margin-left: 1040px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px 20px;
+	border: #ccc 1px solid;
+	text-decoration: none;
+	font-size: 13px;
+	background: white;
+}
+
+input[type=submit]:hover {
+	border: #999 1px solid;
+	color: #666;
+}
+
+input[type=button]:hover {
+	border: #999 1px solid;
+	color: #666;
+}
+
+input[type=button] {
+	margin-left: 10px;
+}
+
+label, input[type=file], .file {
+	margin-bottom: 5px;
+}
+
+.file_input label {
+    position:relative;
+    cursor:pointer;
+    display:inline-block;
+    vertical-align:middle;
+    overflow:hidden;
+    width:80px;
+    height:22px;
+    background:#777;
+    color:#fff;
+    text-align:center;
+    line-height:22px;
+}
+.file_input label input {
+    position:absolute;
+    width:0;
+    height:0;
+    overflow:hidden;
+}
+.file_input input[type=text] {
+    vertical-align:middle;
+    display:inline-block;
+    width:150px;
+    height:20px;
+    line-height:28px;
+    font-size:11px;
+    padding:0;
+    border:0;
+    border:1px solid lightgray;
+}
+
+input {border: 1px solid lightgray;}
+textarea {border: 1px solid lightgray;}
+
+/** --------------------------------------------------------------------- loding**/
+#loading {
+ width: 100%;  
+ height: 100%;  
+ top: 0px;
+ left: 0px;
+ position: fixed;  
+ display: block;  
+ opacity: 0.7;  
+ background-color: #fff;
+ z-index: 9999;  
+ text-align: center; } 
+  
+#loading-image {  
+ position: absolute;  
+ top: 50%;  
+ left: 50%; 
+ z-index: 100; }

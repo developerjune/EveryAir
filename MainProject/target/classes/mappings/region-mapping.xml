@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="RegionDAO">
+	<resultMap id="regionResult" type="regionDTO">
+		<id property="no" column="NO" />
+		<result property="sido" column="SIDO" />
+		<result property="sigungu" column="SIGUNGU" />
+	</resultMap>
+	
+	<select id="selectListSido" resultMap="regionResult">
+		SELECT DISTINCT(sido)
+		FROM REGION
+	</select>
+	
+	<select id="selectListSigungu" resultMap="regionResult">
+		SELECT sigungu
+		FROM REGION
+	</select>
+</mapper>
