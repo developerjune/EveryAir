@@ -137,7 +137,7 @@ public class AdminContentController {
 		return "result.jsp";
 	}
 	
-	@RequestMapping("/adminDeleteImage.do")
+	@RequestMapping("/adminRemoveImage.do")
 	public String deleteImage(ImageDTO dto, Model model) {
 		boolean result = service.deleteImage(dto);
 		

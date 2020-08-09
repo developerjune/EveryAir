@@ -98,7 +98,7 @@ function getParameterByNameforSearchList(name, mode, searchType, keywordType, ke
 
 function removeImage(no, contentno, filename) {
 	if(confirm("사진을 삭제하시겠습니까?") == true)
-		location.href="adminDeleteImage.do?no=" + no + "&contentno=" + contentno + "&name=" + filename;
+		location.href="adminRemoveImage.do?no=" + no + "&contentno=" + contentno + "&name=" + filename;
 	else
 		return false;
 }
